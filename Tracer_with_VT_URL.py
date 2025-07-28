@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-#RU_PRESALE_TEAM_BORIS_O
+#2Rog
 
 import socket
 from select import select
-from signal import signal
 from sys import platform
 from re import match
 from datetime import datetime
