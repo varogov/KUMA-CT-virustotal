@@ -1,8 +1,8 @@
-# Tracer.py — URL Enrichment Server with VirusTotal Integration
+# Tracer_with_VT_URL.py — URL Enrichment Server with VirusTotal Integration
 
 ## 📌 Описание
 
-`Tracer.py` — это простой TCP-сервер на Python, предназначенный для приёма строк с URL, извлечения и декодирования параметра `url=...`, и отправки его в [VirusTotal](https://virustotal.com) для анализа.
+`Tracer_with_VT_URL.py` — это простой TCP-сервер на Python, предназначенный для приёма строк с URL, извлечения и декодирования параметра `url=...`, и отправки его в [VirusTotal](https://virustotal.com) для анализа.
 
 Ответы клиентов обогащаются данными из VT и отправляются обратно в формате `key=value|...`.
 
@@ -58,13 +58,13 @@ python3 Tracer_with_VT_URL.py
 ## 📤 Пример входящего сообщения:
 
 ```
-some_id|url=https%3A%2F%2Fevil.com|more_data
+some_id|url=https://evil.com|more_data
 ```
 
 ## 📥 Пример ответа:
 
 ```
-Category=miniCT_URL_Decoder|MatchedIndicator=https%3A%2F%2Fevil.com|decodedURL=https://evil.com|VT_Result=5/97 engines flagged|Engines=Dr.Web,Sophos|Tags=phishing|ScanDate=2025-07-25|ResultTypes=malicious,phishing
+Category=VT_URL_Status|MatchedIndicator=https://evil.com|decodedURL=https://evil.com|VT_Result=5/97 engines flagged|Engines=Dr.Web,Sophos|Tags=phishing|ScanDate=2025-07-25|ResultTypes=malicious,phishing
 LookupFinished
 ```
 
@@ -100,4 +100,4 @@ LookupFinished
 
 Для проверки полной цепочки направьте тестовое событие на порт коллектора с нормализатором CEF
 Командой:
- nc <адрес> <порт коллектора> <<< 'CEF:Version|Device Vendor|Device Product|Device Version|Signature ID|Name|Severity|request=https://123.0077.x24hr.com/'
+`nc <адрес> <порт коллектора> <<< 'CEF:Version|Device Vendor|Device Product|Device Version|Signature ID|Name|Severity|request=https://123.0077.x24hr.com/'`
