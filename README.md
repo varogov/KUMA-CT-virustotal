@@ -39,7 +39,8 @@ PORT = 16666 (строка кода 15) - укажите порт для про�
 
 2. Вставьте ваш API-ключ от VirusTotal:
 ```python
-VT_API_KEY = "ВАШ_КЛЮЧ" 66 строка
+VT_API_KEY = "ВАШ_КЛЮЧ"
+(66 строка)
 ```
 
 ---
@@ -102,3 +103,41 @@ LookupFinished
 Для проверки полной цепочки направьте тестовое событие на порт коллектора с нормализатором CEF
 Командой:
 `nc <адрес> <порт коллектора> <<< 'CEF:Version|Device Vendor|Device Product|Device Version|Signature ID|Name|Severity|request=https://123.0077.x24hr.com/'`
+
+## Настройка автоматизации (systemd)
+
+Проверив, что скрипт запускается в обычном режиме, его можно "обернуть" в сервис
+
+Создайте конфиг сервиса
+`nano /etc/systemd/system/KUMA_VT.service`
+
+
+```
+[Unit]
+Description=Tracer Service for KUMA VT Enrichment
+After=network-online.target
+
+[Service]
+#Путь скрипта
+ExecStart=/root/KUMA-CT-virustotal/Tracer_with_VT_URL.py
+WorkingDirectory=/root/KUMA-CT-virustotal
+Restart=always
+RestartSec=5s
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Обновите
+`systemctl daemon-reload`
+
+Запустите
+`systemctl start KUMA_VT.service`
+
+Добавьте в автозапуск
+`systemctl enable KUMA_VT.service`
+
+Проверьте статус службы
+`systemctl status KUMA_VT.service`
