@@ -95,7 +95,8 @@ LookupFinished
 По картинке выше, обогащается значение поля RequestURL и сопоставляется с полем Tracer - url.
 Производительность скрипта состовляет ~ 50 EPS, при рекомендуемой настройке Enrichment (количество подключений): 50 connections и 50 RPS (запросов в секунду).
 Если использовать в пропорции 500 / 500, то можно обогащать примерно 500 EPS событий без потерь.
-<img width="458" height="697" alt="image" src="https://github.com/user-attachments/assets/4e013012-709f-4215-8616-6a2ed09bddb6" />
+<img width="453" height="696" alt="image" src="https://github.com/user-attachments/assets/81fbaa5f-29db-433f-b5b8-3531402e5a13" />
+
 
 
 Для проверки полной цепочки направьте тестовое событие на порт коллектора с нормализатором CEF
