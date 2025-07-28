@@ -58,13 +58,13 @@ python3 Tracer_with_VT_URL.py
 ## 📤 Пример входящего сообщения:
 
 ```
-some_id|url=https%3A%2F%2Fevil.com|more_data
+some_id|url=https://evil.com|more_data
 ```
 
 ## 📥 Пример ответа:
 
 ```
-Category=miniCT_URL_Decoder|MatchedIndicator=https%3A%2F%2Fevil.com|decodedURL=https://evil.com|VT_Result=5/97 engines flagged|Engines=Dr.Web,Sophos|Tags=phishing|ScanDate=2025-07-25|ResultTypes=malicious,phishing
+Category=VT_URL_Status|MatchedIndicator=https://evil.com|decodedURL=https://evil.com|VT_Result=5/97 engines flagged|Engines=Dr.Web,Sophos|Tags=phishing|ScanDate=2025-07-25|ResultTypes=malicious,phishing
 LookupFinished
 ```
 
