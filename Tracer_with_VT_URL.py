@@ -59,7 +59,7 @@ def serve_client(current_socket, server_socket, connected_sockets, starttime):
             print(client_data)
 
         if match(regexURLFeed, client_data):
-            Category = "miniCT_URL_Decoder"
+            Category = "VT_URL_Status"
             ioc = match(regexURLFeed, str(client_data)).group(1)
             decoded_url = unquote(ioc)
 
